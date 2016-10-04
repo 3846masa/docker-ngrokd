@@ -1,0 +1,15 @@
+version: "2"
+services:
+  ngrokd:
+    build: .
+    network_mode: bridge
+    command:
+      - "-domain=example.com"
+    ports:
+      - "4443:4443"
+    environment:
+      VIRTUAL_HOST: "*.example.com"
+      VIRTUAL_PORT: 80
+      HTTPS_METHOD: noredirect
+      CF_API_KEY: ""
+      CF_API_EMAIL: ""
