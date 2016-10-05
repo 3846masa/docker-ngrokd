@@ -7,7 +7,9 @@ RUN apk --update add ca-certificates git && \
 
 COPY ./ngrok .
 
-RUN make release-server && mv ./bin/ngrokd /usr/local/bin/ngrokd
+RUN make release-server && \
+    mv ./bin/ngrokd /usr/local/bin/ngrokd && \
+    rm -rf ./*
 
 EXPOSE 80 443 4443
 
