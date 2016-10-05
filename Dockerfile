@@ -2,14 +2,15 @@ FROM golang:alpine
 
 MAINTAINER 3846masa <3846masahiro+git@gmail.com>
 
-RUN apk --update add ca-certificates git && \
-    apk add --virtual build-dependencies build-base
+RUN apk add --no-cache ca-certificates
 
 COPY ./ngrok .
 
-RUN make release-server && \
+RUN apk add --no-cache --virtual build-deps build-base git && \
+    make release-server && \
     mv ./bin/ngrokd /usr/local/bin/ngrokd && \
-    rm -rf ./*
+    rm -rf ./* && \
+    apk del --purge build-deps
 
 EXPOSE 80 443 4443
 
