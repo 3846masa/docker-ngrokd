@@ -20,6 +20,7 @@ trust_host_root_certs: false
 ```
 
 ## Server Usage
+
 ### Env
 |     ENV      | Description                                           |   Required   |
 |:------------:|:------------------------------------------------------|:------------:|
@@ -34,10 +35,12 @@ trust_host_root_certs: false
 [cf-api]: #cloudflare-api
 
 ### Using Docker CLI
+
 #### Simple
 ```bash
 $ docker run -e VHOST_NAME=example.com 3846masa/ngrokd
 ```
+
 #### Advanced
 ```bash
 $ docker run 3846masa/ngrokd ngrokd -domain=example.com -log-level=WARNING [...opts]
@@ -58,12 +61,12 @@ Using CloudFlare Universal SSL, you should do the following settings.
 - When you use **Flexible SSL**, you can access **via SSL only**.
 - If you will access HTTP, please use **Full SSL**.
   - [nginx-proxy] and self-signed SSL is easy way.
+
 ##### API Key
 - [Access account page][cf-account].
 - Account > API Key > Global API Key
 
 [cf-account]: https://www.cloudflare.com/a/account
-
 
 ## LICENSE
 (c) 3846masa [MIT](./LICENSE)
