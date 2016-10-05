@@ -2,12 +2,22 @@
 
 [Product Page](https://github.com/inconshreveable/ngrok)
 
-## Client
+[DockerHub](https://hub.docker.com/r/3846masa/ngrokd/)
+
+## Client Usage
+### Get client ngrok
 Pull [3846masa/ngrok] and `make release-client` (Recommended).
 
 Or download from [GitHub Releases](https://github.com/3846masa/ngrok/releases).
 
 [3846masa/ngrok]: https://github.com/3846masa/ngrok
+
+### Settings
+Make file `$HOME/.ngrok`, write settings and rewrite `server_addr`.
+```yaml
+server_addr: example.com:4443
+trust_host_root_certs: false
+```
 
 ## Server Usage
 ### Env
